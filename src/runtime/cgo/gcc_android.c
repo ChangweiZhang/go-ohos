@@ -3,7 +3,6 @@
 // license that can be found in the LICENSE file.
 
 #include <stdarg.h>
-#include <android/log.h>
 #include <pthread.h>
 #include <dlfcn.h>
 #include "libcgo.h"
@@ -26,7 +25,6 @@ fatalf(const char* format, ...)
 	fprintf(stderr, "\n");
 
 	va_start(ap, format);
-	__android_log_vprint(ANDROID_LOG_FATAL, "runtime/cgo", format, ap);
 	va_end(ap);
 
 	abort();
